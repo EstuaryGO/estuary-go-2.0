@@ -13,8 +13,9 @@ const JUMP_IN_CARDS = [
   label: "GO! Pray. Love. Invite.",
   description: "Your daily missional rhythm — pray, love, and invite.",
   path: "/pray-impact-invite",
-  thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/1981c2eb3_50j61OcSlyH3tcikQGOX_3PrepsThumb.jpg",
-  icon: BookOpen
+  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/fb0370d63_thumbnail.jpg",
+  icon: BookOpen,
+  contain: true
 },
 {
   label: "GO! Preps + Practices",
@@ -73,14 +74,14 @@ export default function Home() {
       <div id="tour-jump-in">
         
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {JUMP_IN_CARDS.map(({ label, description, path, thumbnail, icon: Icon }) =>
+          {JUMP_IN_CARDS.map(({ label, description, path, thumbnail, icon: Icon, contain }) =>
             <Link
               key={path}
               to={path}
               className="group rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
               
               <div className="relative overflow-hidden">
-                <img src={thumbnail} alt={label} className="w-full object-cover max-h-52 md:max-h-80 group-hover:scale-105 transition-transform duration-300" />
+                <img src={thumbnail} alt={label} className={`w-full max-h-52 md:max-h-80 group-hover:scale-105 transition-transform duration-300 ${contain ? "object-contain bg-black" : "object-cover"}`} />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
               </div>
               <div className="px-4 py-3 space-y-2">
