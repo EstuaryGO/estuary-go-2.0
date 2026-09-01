@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
-import AddPersonFlow from "@/components/estuary/AddPersonFlow";
+import AddPersonModal from "@/components/estuary/AddPersonModal";
+import QuickLogBox from "@/components/estuary/QuickLogBox";
 import PersonCard from "@/components/estuary/PersonCard";
 
 
@@ -27,7 +28,10 @@ export default function MyEstuary() {
       </div>
 
       {/* Add person */}
-      <AddPersonFlow />
+      <AddPersonModal />
+
+      {/* Quick step / reflection log */}
+      <QuickLogBox people={people} />
 
       {/* Sort controls */}
       <div className="flex items-center gap-2">
