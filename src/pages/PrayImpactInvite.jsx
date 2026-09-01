@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { format } from "date-fns";
-import { Heart, Footprints, UserPlus, ChevronDown, ChevronUp } from "lucide-react";
+import { Heart, HandHeart, UserPlus, ChevronDown, ChevronUp } from "lucide-react";
 import PrayerReflection from "@/components/estuary/PrayerReflection";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
@@ -47,9 +47,9 @@ export default function PrayImpactInvite() {
       <PullToRefreshIndicator pullDistance={pullDistance} isRefreshing={isRefreshing} />
       <div className="space-y-4">
         <div className="rounded-xl border border-border bg-card px-5 py-4">
-          <h1 className="text-xl font-bold text-foreground">Pray. Impact. Invite.</h1>
+          <h1 className="text-xl font-bold text-foreground">Pray. Love. Invite.</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Your daily missional rhythm — pray for your Estuary, take steps of impact, and invite others in.
+            Your daily missional rhythm — pray for your Estuary, love your neighbors, and invite others in.
           </p>
         </div>
 
@@ -94,10 +94,10 @@ export default function PrayImpactInvite() {
 
         {/* Impact pillar */}
         <PillarCard
-          icon={Footprints}
-          title="Impact"
+          icon={HandHeart}
+          title="Love"
           stat={`${journal.length}`}
-          statLabel="steps taken toward your Estuary"
+          statLabel="steps of love toward your Estuary"
           actionLabel="Log a step"
           onAction={() => navigate("/my-estuary")}
         />

@@ -46,9 +46,9 @@ const navItems = [
 const adminNavItems = [];
 
 
-const ROOT_PATHS = ["/", "/home", "/pray-impact-invite", "/preps-and-practices", "/shop", "/go-chat", "/my-estuary"];
+const ROOT_PATHS = ["/", "/home", "/shop", "/go-chat", "/my-estuary", "/go-coach"];
 
-const TAB_ROOTS = ["/home", "/pray-impact-invite", "/preps-and-practices", "/my-estuary"];
+const TAB_ROOTS = ["/home", "/my-estuary", "/go-coach"];
 
 const PAGE_TITLES = {
   "/go-coach": "GO! AI Assistant",
@@ -222,44 +222,28 @@ export default function Layout() {
 
         {mobileOpen &&
         <div className="md:hidden border-t border-border bg-card p-4 space-y-1">
-            {/* Home */}
+            {/* GO! Logo + pithy statement */}
+            <div className="flex items-center gap-2 px-4 py-3">
+              <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/6ca653584_goLogo.png" alt="GO! Logo" className="h-9 w-auto" />
+              <span className="text-xs text-muted-foreground">Join Jesus on His mission.</span>
+            </div>
+            {/* GO! Pray. Love. Invite. */}
             <Link
-            to="/home"
+            to="/pray-impact-invite"
             onClick={() => setMobileOpen(false)}
-            className={`select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${location.pathname === "/home" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
-            
-              <House className="h-4 w-4" />
-              Home
+            className={`select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${location.pathname === "/pray-impact-invite" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              <BookOpen className="h-4 w-4" />
+              GO! Pray. Love. Invite.
             </Link>
-            {/* My Estuary */}
+            {/* GO! Preps + Practices */}
             <Link
-            to="/my-estuary"
+            to="/preps-and-practices"
             onClick={() => setMobileOpen(false)}
-            className={`select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${location.pathname === "/my-estuary" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
-            
-              <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/e16740db9_icon.png" alt="My Estuary" className="h-4 w-4 object-contain opacity-60 dark:hidden" />
-              <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/f63fcb251_whiteicon.png" alt="My Estuary" className="h-4 w-4 object-contain opacity-60 hidden dark:block" />
-              My Estuary
+            className={`select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${location.pathname === "/preps-and-practices" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
+              <Layers className="h-4 w-4" />
+              GO! Preps + Practices
             </Link>
-            {/* GO! AI Missionary */}
-            <Link
-            to="/go-coach"
-            onClick={() => setMobileOpen(false)}
-            className={`select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${location.pathname === "/go-coach" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary"}`}>
-            
-              <Bot className="h-4 w-4" />
-              GO! AI Assistant
-            </Link>
-            {/* Give */}
-            <a
-            href="https://lifeintheestuary.churchcenter.com/giving"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary">
-              <Gift className="h-4 w-4" />
-              Give
-            </a>
+
             {/* Sign Out */}
             <button
             onClick={() => base44.auth.logout()}
@@ -357,18 +341,22 @@ export default function Layout() {
         <div className="flex items-center justify-evenly w-full px-2 py-2">
           {[
           { to: "/home", label: "Home", Icon: House },
-          { to: "/pray-impact-invite", label: "Pray", Icon: BookOpen },
-          { to: "/preps-and-practices", label: "Videos", Icon: Layers },
-          { to: "/my-estuary", label: "Estuary", Icon: null }].
+          { to: "/my-estuary", label: "My Estuary", Icon: null },
+          { to: "/go-coach", label: "GO! AI", Icon: Bot },
+          { to: "https://lifeintheestuary.churchcenter.com/giving", label: "Give", Icon: Gift, external: true }].
 
-          map(({ to, label, Icon }) => {
-            const isActive = location.pathname === to || to === "/home" && location.pathname === "/";
-            const isTabActive = isActive || location.pathname.startsWith(to === "/" ? "/home" : to);
+          map(({ to, label, Icon, external }) => {
+            const isActive = !external && (location.pathname === to || (to === "/home" && location.pathname === "/"));
+            const isTabActive = isActive || (!external && location.pathname.startsWith(to === "/" ? "/home" : to));
             return (
               <button
                 key={to}
                 id={to === "/my-estuary" ? "tour-estuary-nav" : undefined}
                 onClick={() => {
+                  if (external) {
+                    window.open(to, "_blank", "noopener,noreferrer");
+                    return;
+                  }
                   if (isActive) {
                     // Re-selecting active tab — reset scroll to top
                     window.scrollTo({ top: 0, behavior: "smooth" });

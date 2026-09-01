@@ -10,14 +10,14 @@ import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 
 const JUMP_IN_CARDS = [
 {
-  label: "Pray. Impact. Invite.",
-  description: "Your daily missional rhythm — pray, take steps of impact, and invite.",
+  label: "GO! Pray. Love. Invite.",
+  description: "Your daily missional rhythm — pray, love, and invite.",
   path: "/pray-impact-invite",
   thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/1981c2eb3_50j61OcSlyH3tcikQGOX_3PrepsThumb.jpg",
   icon: BookOpen
 },
 {
-  label: "Preps + Practices",
+  label: "GO! Preps + Practices",
   description: "Flow through the full video catalogue and keep tracking your steps.",
   path: "/preps-and-practices",
   thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/090f1c1e5_uywfLHTMStCut8jtQOfv_7PracticesThumb.jpg",

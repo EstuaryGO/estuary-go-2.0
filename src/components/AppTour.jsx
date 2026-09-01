@@ -18,7 +18,7 @@ const TOUR_STEPS = [
     element: "#tour-bottom-nav",
     popover: {
       title: "📚 Access Your GO! Modules",
-      description: "Use the bottom navigation to jump between Home, Pray, Videos, and your personal Estuary at any time.",
+      description: "Use the bottom navigation to jump between Home, My Estuary, GO! AI, and Give at any time.",
       side: "top",
       align: "center",
     },
@@ -27,7 +27,7 @@ const TOUR_STEPS = [
     element: "#tour-jump-in",
     popover: {
       title: "🏠 Jump Back In",
-      description: "From the Home screen, tap either card to dive into the Pray. Impact. Invite. rhythm or the Preps + Practices videos.",
+      description: "From the Home screen, tap either card to dive into the Pray. Love. Invite. rhythm or the Preps + Practices videos.",
       side: "bottom",
       align: "center",
     },
