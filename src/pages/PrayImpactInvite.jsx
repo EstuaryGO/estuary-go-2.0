@@ -3,10 +3,28 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { format } from "date-fns";
-import { Heart, HandHeart, UserPlus, ChevronDown, ChevronUp } from "lucide-react";
+import { Heart, HandHeart, UserPlus, ChevronDown, ChevronUp, Play } from "lucide-react";
 import PrayerReflection from "@/components/estuary/PrayerReflection";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
+
+const PILLAR_VIDEOS = {
+  pray: {
+    vimeoId: "1223092130",
+    thumbnail:
+      "https://i.vimeocdn.com/video/2196287359-7c3c29e67425965de1131539799e17232f73da17af23a1d08479e88d494b8a53-d_1920x1080?region=us",
+  },
+  love: {
+    vimeoId: "1223094407",
+    thumbnail:
+      "https://i.vimeocdn.com/video/2196287211-6129827a0142a0385ef88a9dfb9ce78c7105582169684eaca1d58c13b591d79f-d_1920x1080?region=us",
+  },
+  invite: {
+    comingSoon: true,
+    thumbnail:
+      "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/45e93a1d3_comingsoon.jpg",
+  },
+};
 
 function todayStr() {
   return format(new Date(), "yyyy-MM-dd");
@@ -62,6 +80,7 @@ export default function PrayImpactInvite() {
           actionLabel="Pray now"
           actionOpen={prayOpen}
           onAction={() => setPrayOpen((o) => !o)}
+          video={PILLAR_VIDEOS.pray}
         >
           {prayOpen && (
             <div className="space-y-3 pt-1">
@@ -100,6 +119,7 @@ export default function PrayImpactInvite() {
           statLabel="steps of love toward your Estuary"
           actionLabel="Log a step"
           onAction={() => navigate("/my-estuary")}
+          video={PILLAR_VIDEOS.love}
         />
 
         {/* Invite pillar */}
@@ -110,15 +130,65 @@ export default function PrayImpactInvite() {
           statLabel={people.length === 1 ? "person in your Estuary" : "people in your Estuary"}
           actionLabel="Add a person"
           onAction={() => navigate("/my-estuary")}
+          video={PILLAR_VIDEOS.invite}
         />
       </div>
     </>
   );
 }
 
-function PillarCard({ icon: Icon, title, stat, statLabel, actionLabel, onAction, actionOpen, children }) {
+function PillarVideo({ video }) {
+  const [playing, setPlaying] = useState(false);
+
+  if (!video) return null;
+
+  if (video.commingSoon) {
+    return (
+      <div className="relative w-full aspect-video bg-black">
+        <img src={video.thumbnail} alt="Coming soon" className="w-full h-full object-cover opacity-90" />
+        <div className="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white uppercase tracking-wider">
+          Coming soon
+        </div>
+      </div>
+    );
+  }
+
+  if (playing) {
+    return (
+      <iframe
+        src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&playsinline=1&muted=0&autopause=0`}
+        className="w-full aspect-video"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowFullScreen
+        playsInline
+        title="Pillar video"
+      />
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setPlaying(true)}
+      className="relative w-full aspect-video bg-black block group"
+    >
+      {video.thumbnail ? (
+        <img src={video.thumbnail} alt={video.title || "Video"} className="w-full h-full object-cover" />
+      ) : (
+        <div className="w-full h-full bg-black" />
+      )}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <Play className="h-6 w-6 text-black ml-0.5" fill="currentColor" />
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function PillarCard({ icon: Icon, title, stat, statLabel, actionLabel, onAction, actionOpen, children, video }) {
   return (
     <div className="rounded-2xl border border-border bg-card overflow-hidden">
+      {video && <PillarVideo video={video} />}
       <div className="flex items-center gap-3 px-5 py-4">
         <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
           <Icon className="h-5 w-5 text-primary" />
