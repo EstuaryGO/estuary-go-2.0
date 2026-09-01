@@ -1,0 +1,35 @@
+{
+  "name": "EstuaryPerson",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the person in the user's cultural estuary"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "URL of the person's photo"
+    },
+    "notes": {
+      "type": "string",
+      "description": "General notes about this person"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "user"
+      ],
+      "default": "user"
+    },
+    "has_completed_tour": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the user has seen the onboarding tour"
+    },
+    "monday_synced": {
+      "type": "boolean",
+      "default": false
+    },
+    "church": {
+      "type": "string",
+      "description": "The church the user attends"
+    }
+  }
+}

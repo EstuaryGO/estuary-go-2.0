@@ -1,0 +1,38 @@
+{
+  "name": "VideoProgress",
+  "type": "object",
+  "properties": {
+    "video_id": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "video_id",
+    "user_email"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}",
+      "data.user_email": "{{user.email}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}",
+      "data.user_email": "{{user.email}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}",
+      "data.user_email": "{{user.email}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}",
+      "data.user_email": "{{user.email}}"
+    }
+  }
+}

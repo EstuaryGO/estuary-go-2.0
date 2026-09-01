@@ -1,0 +1,44 @@
+{
+  "name": "EstuaryJournalEntry",
+  "type": "object",
+  "properties": {
+    "person_id": {
+      "type": "string",
+      "description": "ID of the EstuaryPerson this entry belongs to"
+    },
+    "person_name": {
+      "type": "string",
+      "description": "Name of the EstuaryPerson this entry belongs to"
+    },
+    "content": {
+      "type": "string",
+      "description": "The journal entry / step taken toward this person"
+    },
+    "submitter_email": {
+      "type": "string",
+      "description": "Email of the user who submitted this entry"
+    },
+    "submitter_name": {
+      "type": "string",
+      "description": "Full name of the user who submitted this entry"
+    }
+  },
+  "required": [
+    "person_id",
+    "content"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
