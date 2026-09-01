@@ -21,8 +21,9 @@ const JUMP_IN_CARDS = [
   label: "GO! Preps + Practices",
   description: "Flow through the full video catalogue and keep tracking your steps.",
   path: "/preps-and-practices",
-  thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/090f1c1e5_uywfLHTMStCut8jtQOfv_7PracticesThumb.jpg",
-  icon: Layers
+  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/40bf1819b_thumbnail2.jpg",
+  icon: Layers,
+  contain: true
 }];
 
 
