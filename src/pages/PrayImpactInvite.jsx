@@ -176,9 +176,9 @@ function PillarVideo({ video }) {
       ) : (
         <div className="w-full h-full bg-black" />
       )}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-          <Play className="h-6 w-6 text-black ml-0.5" fill="currentColor" />
+      <div className="absolute top-3 left-3">
+        <div className="h-12 w-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+          <Play className="h-5 w-5 text-black ml-0.5" fill="currentColor" />
         </div>
       </div>
     </button>
