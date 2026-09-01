@@ -46,9 +46,9 @@ const navItems = [
 const adminNavItems = [];
 
 
-const ROOT_PATHS = ["/", "/home", "/preps", "/practices", "/shop", "/go-chat", "/my-estuary"];
+const ROOT_PATHS = ["/", "/home", "/pray-impact-invite", "/preps-and-practices", "/shop", "/go-chat", "/my-estuary"];
 
-const TAB_ROOTS = ["/home", "/preps", "/practices", "/my-estuary"];
+const TAB_ROOTS = ["/home", "/pray-impact-invite", "/preps-and-practices", "/my-estuary"];
 
 const PAGE_TITLES = {
   "/go-coach": "GO! AI Assistant",
@@ -357,9 +357,9 @@ export default function Layout() {
         <div className="flex items-center justify-evenly w-full px-2 py-2">
           {[
           { to: "/home", label: "Home", Icon: House },
-          { to: "/preps", label: "3 Preps", Icon: BookOpen },
-          { to: "/practices", label: "7 Practices", Icon: Layers },
-          { to: "/my-estuary", label: "My Estuary", Icon: null }].
+          { to: "/pray-impact-invite", label: "Pray", Icon: BookOpen },
+          { to: "/preps-and-practices", label: "Videos", Icon: Layers },
+          { to: "/my-estuary", label: "Estuary", Icon: null }].
 
           map(({ to, label, Icon }) => {
             const isActive = location.pathname === to || to === "/home" && location.pathname === "/";

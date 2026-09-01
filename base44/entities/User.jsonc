@@ -23,5 +23,8 @@
       "type": "string",
       "description": "The church the user attends"
     }
-  }
+  },
+  "required": [
+    "church"
+  ]
 }

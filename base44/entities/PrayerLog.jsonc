@@ -1,0 +1,40 @@
+{
+  "name": "PrayerLog",
+  "type": "object",
+  "properties": {
+    "person_id": {
+      "type": "string",
+      "description": "ID of the EstuaryPerson prayed for"
+    },
+    "person_name": {
+      "type": "string",
+      "description": "Name of the EstuaryPerson prayed for"
+    },
+    "reflection": {
+      "type": "string",
+      "description": "Optional reflection on what the Lord is saying during prayer"
+    },
+    "date": {
+      "type": "string",
+      "description": "Date of the prayer (YYYY-MM-DD)"
+    }
+  },
+  "required": [
+    "person_id",
+    "date"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

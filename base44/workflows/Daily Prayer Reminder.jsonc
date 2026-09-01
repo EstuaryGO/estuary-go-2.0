@@ -1,0 +1,44 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "daily_prayer_reminder",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "send_push": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendPrayerReminderPush"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Send prayer reminders",
+            "description": "10:02 AM daily push"
+          }
+        }
+      }
+    ]
+  },
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "2 10 * * *",
+      "one_time_date": null,
+      "timezone": "America/New_York",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "description": "Sends a 10:02 AM push notification reminding each user to pray for the people in their Estuary.",
+  "name": "Daily Prayer Reminder"
+}

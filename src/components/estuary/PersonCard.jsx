@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { ChevronDown, ChevronUp, Trash2, User, Pencil } from "lucide-react";
 import JournalSection from "./JournalSection";
+import PrayerReflection from "./PrayerReflection";
 import EditPersonModal from "./EditPersonModal";
 import {
   AlertDialog,
@@ -56,6 +57,7 @@ export default function PersonCard({ person }) {
 
         {open && (
           <div className="px-4 pb-4 pt-1 border-t border-border space-y-3">
+            <PrayerReflection person={person} />
             <JournalSection personId={person.id} personName={person.name} />
             <div className="pt-1 flex justify-end">
               <button

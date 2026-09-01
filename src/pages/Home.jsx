@@ -10,16 +10,16 @@ import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 
 const JUMP_IN_CARDS = [
 {
-  label: "GO! 3 Preps",
-  description: "Three preparation modules to equip you for missional living.",
-  path: "/preps",
+  label: "Pray. Impact. Invite.",
+  description: "Your daily missional rhythm — pray, take steps of impact, and invite.",
+  path: "/pray-impact-invite",
   thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/1981c2eb3_50j61OcSlyH3tcikQGOX_3PrepsThumb.jpg",
   icon: BookOpen
 },
 {
-  label: "GO! 7 Practices",
-  description: "Seven missional practices to live on mission every day.",
-  path: "/practices",
+  label: "Preps + Practices",
+  description: "Flow through the full video catalogue and keep tracking your steps.",
+  path: "/preps-and-practices",
   thumbnail: "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/090f1c1e5_uywfLHTMStCut8jtQOfv_7PracticesThumb.jpg",
   icon: Layers
 }];
@@ -58,9 +58,12 @@ export default function Home() {
   const prepVideos = videos.filter((v) => v.category === "GO! Prep Modules" && !isIntroOutro(v));
   const practiceVideos = videos.filter((v) => v.category === "GO! Practices Modules" && !isIntroOutro(v));
 
+  const allTrackableVideos = [...prepVideos, ...practiceVideos];
   const progressByPath = {
-    "/preps": { completed: prepVideos.filter((v) => completedIds.has(v.id)).length, total: prepVideos.length },
-    "/practices": { completed: practiceVideos.filter((v) => completedIds.has(v.id)).length, total: practiceVideos.length }
+    "/preps-and-practices": {
+      completed: allTrackableVideos.filter((v) => completedIds.has(v.id)).length,
+      total: allTrackableVideos.length,
+    },
   };
 
   return (

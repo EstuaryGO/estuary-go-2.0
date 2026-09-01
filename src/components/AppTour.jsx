@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 // Steps that require a specific page to be loaded first
 // index = step index in the flat TOUR_STEPS array
 const STEP_ROUTES = {
-  2: "/preps",      // #tour-mark-complete lives on /preps
+  2: "/preps-and-practices", // #tour-mark-complete lives on /preps-and-practices
   4: "/my-estuary", // #tour-add-person lives on /my-estuary
   5: "/my-estuary", // #tour-journal lives on /my-estuary
   6: "/home",       // #tour-hamburger — back to home for the final step
@@ -18,7 +18,7 @@ const TOUR_STEPS = [
     element: "#tour-bottom-nav",
     popover: {
       title: "📚 Access Your GO! Modules",
-      description: "Use the bottom navigation to jump between Home, the 3 Preps, the 7 Practices, and your personal Estuary at any time.",
+      description: "Use the bottom navigation to jump between Home, Pray, Videos, and your personal Estuary at any time.",
       side: "top",
       align: "center",
     },
@@ -27,7 +27,7 @@ const TOUR_STEPS = [
     element: "#tour-jump-in",
     popover: {
       title: "🏠 Jump Back In",
-      description: "From the Home screen, tap either card to dive into the GO! 3 Preps or GO! 7 Practices modules.",
+      description: "From the Home screen, tap either card to dive into the Pray. Impact. Invite. rhythm or the Preps + Practices videos.",
       side: "bottom",
       align: "center",
     },
