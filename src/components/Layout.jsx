@@ -281,7 +281,7 @@ export default function Layout() {
 
       <CartSheet open={cartOpen} onClose={() => setCartOpen(false)} />
 
-      {location.pathname === "/home" &&
+      {(location.pathname === "/home" || location.pathname === "/") &&
       <div className="w-screen relative left-1/2 -translate-x-1/2 bg-black">
         {!videoPlaying ?
         <button
@@ -306,7 +306,7 @@ export default function Layout() {
 
 
 
-      {location.pathname === "/home" &&
+      {(location.pathname === "/home" || location.pathname === "/") &&
       <div className="bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6 py-3">
             <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">This Month's GO! Story</p>
