@@ -225,7 +225,7 @@ export default function Layout() {
             {/* GO! Logo + pithy statement */}
             <div className="flex items-center gap-2 px-4 py-3">
               <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/6ca653584_goLogo.png" alt="GO! Logo" className="h-9 w-auto" />
-              <span className="text-xs text-muted-foreground">Join Jesus on His mission.</span>
+              <span className="text-xs text-muted-foreground">Live Missionally. Every day.</span>
             </div>
             {/* GO! Pray. Love. Invite. */}
             <Link
@@ -338,7 +338,7 @@ export default function Layout() {
         className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-t border-border shadow-lg"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
         
-        <div className="flex items-center justify-evenly w-full px-2 py-2">
+        <div className="flex items-center justify-center w-full px-2 py-2">
           {[
           { to: "/home", label: "Home", Icon: House },
           { to: "/my-estuary", label: "My Estuary", Icon: null },
@@ -365,7 +365,7 @@ export default function Layout() {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`select-none flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors ${isTabActive ? "text-primary" : "text-muted-foreground"}`}>
+                className={`select-none flex-1 flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl transition-colors ${isTabActive ? "text-primary" : "text-muted-foreground"}`}>
                 
                 {to === "/my-estuary" ?
                 <>
