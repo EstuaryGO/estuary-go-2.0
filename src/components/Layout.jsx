@@ -46,7 +46,7 @@ const navItems = [
 const adminNavItems = [];
 
 
-const ROOT_PATHS = ["/", "/home", "/shop", "/go-chat", "/my-estuary", "/go-coach"];
+const ROOT_PATHS = ["/", "/home", "/shop", "/go-chat", "/my-estuary", "/go-coach", "/preps-and-practices", "/preps-and-practices/preps", "/preps-and-practices/practices", "/pray-impact-invite", "/guide-training"];
 
 const TAB_ROOTS = ["/home", "/my-estuary", "/go-coach"];
 
