@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { format } from "date-fns";
-import { Heart, HandHeart, UserPlus, ChevronDown, ChevronUp, Play } from "lucide-react";
-import PrayerReflection from "@/components/estuary/PrayerReflection";
+import { Heart, HandHeart, UserPlus, ChevronDown, ChevronUp, Play, CheckCircle2 } from "lucide-react";
+import CollectivePrayerButton from "@/components/estuary/CollectivePrayerButton";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import PullToRefreshIndicator from "@/components/PullToRefreshIndicator";
 
@@ -55,10 +55,11 @@ export default function PrayImpactInvite() {
   };
   const { isRefreshing, pullDistance } = usePullToRefresh({ onRefresh: handleRefresh });
 
-  const prayedTodayCount = useMemo(() => {
-    const ids = new Set(prayerLogs.filter((l) => l.date === today).map((l) => l.person_id));
-    return people.filter((p) => ids.has(p.id)).length;
-  }, [prayerLogs, people, today]);
+  const prayedTodayIds = useMemo(
+    () => new Set(prayerLogs.filter((l) => l.date === today).map((l) => l.person_id)),
+    [prayerLogs, today]
+  );
+  const prayedTodayCount = people.filter((p) => prayedTodayIds.has(p.id)).length;
 
   return (
     <>
@@ -84,29 +85,36 @@ export default function PrayImpactInvite() {
         >
           {prayOpen && (
             <div className="space-y-3 pt-1">
-              {people.length === 0 ? (
-                <p className="text-sm text-muted-foreground py-4 text-center">
-                  Your Estuary is empty. Add someone to pray for.
-                </p>
-              ) : (
-                people.map((p) => (
-                  <div key={p.id} className="rounded-xl border border-border p-3 space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-full bg-primary/10 overflow-hidden flex items-center justify-center shrink-0">
-                        {p.photo_url ? (
-                          <img src={p.photo_url} alt={p.name} className="h-full w-full object-cover" />
-                        ) : (
-                          <span className="text-sm font-semibold text-primary">
-                            {p.name.charAt(0).toUpperCase()}
-                          </span>
-                        )}
+              {people.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {people.map((p) => {
+                    const prayed = prayedTodayIds.has(p.id);
+                    return (
+                      <div
+                        key={p.id}
+                        className={`flex items-center gap-2 rounded-full border px-2.5 py-1.5 ${
+                          prayed
+                            ? "border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/30"
+                            : "border-border bg-background"
+                        }`}
+                      >
+                        <div className="h-6 w-6 rounded-full bg-primary/10 overflow-hidden flex items-center justify-center shrink-0">
+                          {p.photo_url ? (
+                            <img src={p.photo_url} alt={p.name} className="h-full w-full object-cover" />
+                          ) : (
+                            <span className="text-[10px] font-semibold text-primary">
+                              {p.name.charAt(0).toUpperCase()}
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-xs font-medium text-foreground truncate max-w-[120px]">{p.name}</span>
+                        {prayed && <CheckCircle2 className="h-3.5 w-3.5 text-green-600 shrink-0" />}
                       </div>
-                      <p className="text-sm font-semibold text-foreground truncate flex-1">{p.name}</p>
-                    </div>
-                    <PrayerReflection person={p} />
-                  </div>
-                ))
+                    );
+                  })}
+                </div>
               )}
+              <CollectivePrayerButton people={people} prayedIds={prayedTodayIds} />
             </div>
           )}
         </PillarCard>
