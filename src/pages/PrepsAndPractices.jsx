@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { PREP_INTRO_THUMBNAIL, PRACTICE_INTRO_THUMBNAIL } from "@/components/preps-practices/prepsPracticesData";
+
+const PREP_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/12054d40d_3preps.jpg";
+const PRACTICE_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/786df6d89_7practices.jpg";
 
 export default function PrepsAndPractices() {
   return (
@@ -17,26 +19,16 @@ export default function PrepsAndPractices() {
       <div className="grid grid-cols-2 gap-4">
         <Link
           to="/preps-and-practices/preps"
-          className="group relative rounded-2xl overflow-hidden border border-border bg-card aspect-square flex items-end"
+          className="group relative rounded-2xl overflow-hidden border border-border bg-card aspect-square block"
         >
-          <img src={PREP_INTRO_THUMBNAIL} alt="3 Preps" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-          <div className="relative z-10 w-full p-4">
-            <span className="text-xl font-bold text-white drop-shadow">3 Preps</span>
-            <p className="text-xs text-white/80">Prepare to live on mission</p>
-          </div>
+          <img src={PREP_THUMBNAIL} alt="3 Preps" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         </Link>
 
         <Link
           to="/preps-and-practices/practices"
-          className="group relative rounded-2xl overflow-hidden border border-border bg-card aspect-square flex items-end"
+          className="group relative rounded-2xl overflow-hidden border border-border bg-card aspect-square block"
         >
-          <img src={PRACTICE_INTRO_THUMBNAIL} alt="7 Practices" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-          <div className="relative z-10 w-full p-4">
-            <span className="text-xl font-bold text-white drop-shadow">7 Practices</span>
-            <p className="text-xs text-white/80">Live the missionary life</p>
-          </div>
+          <img src={PRACTICE_THUMBNAIL} alt="7 Practices" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         </Link>
       </div>
     </div>
