@@ -14,6 +14,8 @@ import GuideTraining from './pages/GuideTraining';
 import GoChat from './pages/GoChat';
 import PrayImpactInvite from './pages/PrayImpactInvite';
 import PrepsAndPractices from './pages/PrepsAndPractices';
+import PrepsPage from './pages/PrepsPage';
+import PracticesPage from './pages/PracticesPage';
 import MyEstuary from './pages/MyEstuary';
 import GoCoach from './pages/GoCoach';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -63,6 +65,8 @@ const AuthenticatedApp = () => {
           <Route path="/go-chat" element={<GoChat />} />
           <Route path="/pray-impact-invite" element={<PrayImpactInvite />} />
           <Route path="/preps-and-practices" element={<PrepsAndPractices />} />
+          <Route path="/preps-and-practices/preps" element={<PrepsPage />} />
+          <Route path="/preps-and-practices/practices" element={<PracticesPage />} />
           <Route path="/my-estuary" element={<MyEstuary />} />
           <Route path="/go-coach" element={<GoCoach />} />
         </Route>
