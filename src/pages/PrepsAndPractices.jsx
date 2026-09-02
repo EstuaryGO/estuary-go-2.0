@@ -12,6 +12,12 @@ import { Play, ChevronDown, X } from "lucide-react";
 const HEADER_THUMBNAIL =
   "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/090f1c1e5_uywfLHTMStCut8jtQOfv_7PracticesThumb.jpg";
 
+const PREP_INTRO_THUMBNAIL =
+  "https://i.vimeocdn.com/video/2171596428-c862ee39aadc4c33ecde98fb1d30a6a1c5bb9f21d8af40e89de71bb8854eaeb1-d_1280?region=us";
+
+const PRACTICE_INTRO_THUMBNAIL =
+  "https://i.vimeocdn.com/video/2171633303-f61fd81de2056b717caa0a6a5f2bd97e90877285624ecd0b2a28d3e2d5d0123b-d_1280?region=us";
+
 const PREP_SUB_THUMBS = {
   "GO! Prep 1":
     "https://media.base44.com/images/public/6a1204d6712923c845a17a9d/b925be268_DCoGeXmTMeBnIZkcyoZ0_prep1thumnail-1.png",
@@ -75,7 +81,7 @@ function SubcategoryHeader({ subcategory, subtitle, thumbnail, videoCount, compl
   );
 }
 
-function SectionHeader({ title, description, introVideo, playingIntro, onPlayIntro, onStopIntro }) {
+function SectionHeader({ title, description, introVideo, thumbnail, playingIntro, onPlayIntro, onStopIntro }) {
   return (
     <div className="rounded-xl overflow-hidden border border-border bg-card">
       {playingIntro && introVideo ? (
@@ -93,7 +99,7 @@ function SectionHeader({ title, description, introVideo, playingIntro, onPlayInt
       ) : (
         introVideo && (
           <button onClick={onPlayIntro} className="relative w-full aspect-video group block">
-            <img src={HEADER_THUMBNAIL} alt={title} className="w-full h-full object-cover" />
+            <img src={thumbnail || HEADER_THUMBNAIL} alt={title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black/50 group-hover:bg-black/70 rounded-full p-3 transition-colors">
                 <Play className="h-7 w-7 text-white fill-white" />
@@ -241,6 +247,7 @@ export default function PrepsAndPractices() {
             title="GO! 3 Preps"
             description="The 3 Prep Modules help you prepare to live as a missionary in your everyday life."
             introVideo={prepIntro}
+            thumbnail={PREP_INTRO_THUMBNAIL}
             playingIntro={playingPrepIntro}
             onPlayIntro={() => setPlayingPrepIntro(true)}
             onStopIntro={() => setPlayingPrepIntro(false)}
@@ -278,6 +285,7 @@ export default function PrepsAndPractices() {
             title="GO! 7 Practices"
             description="The 7 Practices modules equip and guide you — alongside a friend or team — to actually live that missionary life!"
             introVideo={practiceIntro}
+            thumbnail={PRACTICE_INTRO_THUMBNAIL}
             playingIntro={playingPracticeIntro}
             onPlayIntro={() => setPlayingPracticeIntro(true)}
             onStopIntro={() => setPlayingPracticeIntro(false)}
