@@ -65,7 +65,7 @@ export default function AddPersonModal() {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle>Add someone to your Estuary</DialogTitle>
-            <DialogDescription>Track a person Jesus is sending you to.</DialogDescription>
+            <DialogDescription>Capture the ways God is opening doors for gospel impact.</DialogDescription>
           </DialogHeader>
 
           <form onSubmit={handleSubmit} className="space-y-4">
