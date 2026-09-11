@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const PREP_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/12054d40d_3preps.jpg";
-const PRACTICE_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/786df6d89_7practices.jpg";
+const PREP_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/fe675f3a8_prepsSQR.jpg";
+const PRACTICE_THUMBNAIL = "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/ff18f559a_practicesSQR.jpg";
 
 export default function PrepsAndPractices() {
   return (
