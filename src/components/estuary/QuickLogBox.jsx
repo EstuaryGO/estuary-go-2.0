@@ -38,11 +38,11 @@ export default function QuickLogBox({ people }) {
 
   return (
     <div className="rounded-2xl border border-border bg-card p-4 space-y-3">
-      <h2 className="text-sm font-bold text-foreground">Share a GO! Story</h2>
-      <p className="text-xs text-muted-foreground -mt-1">
+      <h2 className="text-base font-bold text-foreground">Share a GO! Story</h2>
+      <p className="text-sm text-muted-foreground">
         God is at work in the ordinary moments of our lives. We'd love to hear what you're seeing.
       </p>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-sm text-muted-foreground">
         Share a story of what God has been doing, a conversation that encouraged you, or a step of obedience you've taken with someone Jesus has placed in your life.
       </p>
 
@@ -65,7 +65,7 @@ export default function QuickLogBox({ people }) {
             ))}
           </select>
 
-          <label className="text-xs font-semibold text-foreground">What has God been doing?</label>
+          <label className="text-sm font-semibold text-foreground">What has God been doing?</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}

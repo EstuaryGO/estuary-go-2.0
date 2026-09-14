@@ -17,12 +17,12 @@ export default function MyEstuary() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <div className="flex items-center gap-3 mb-1">
+      <div className="text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
           <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/e16740db9_icon.png" alt="" className="h-6 w-6 object-contain" />
           <h1 className="text-2xl font-bold text-foreground">My Estuary</h1>
         </div>
-        <p className="text-sm text-muted-foreground ml-9">
+        <p className="text-sm text-muted-foreground mx-auto max-w-md">
           This is your Digital Field Guide, where you can track the steps you are taking to have a gospel impact on the people Jesus is sending you to.
         </p>
       </div>
