@@ -244,19 +244,12 @@ export default function Layout() {
               GO! Preps + Practices
             </Link>
 
-            {/* Sign Out */}
-            <button
-            onClick={() => base44.auth.logout()}
-            className="select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary w-full">
-              <LogOut className="h-4 w-4" />
-              Sign out
-            </button>
-            {/* Edit Name */}
+            {/* Edit My Profile */}
             <button
             onClick={() => {setMobileOpen(false);setNameInput(user?.full_name || "");setEditNameOpen(true);}}
             className="select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary w-full">
               <Pencil className="h-4 w-4" />
-              Edit My Name
+              Edit My Profile
             </button>
             {/* Take A Tour */}
             <button
@@ -264,6 +257,13 @@ export default function Layout() {
             className="select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-primary hover:bg-primary/10 w-full">
               <span>🗺️</span>
               Take A Tour
+            </button>
+            {/* Sign Out */}
+            <button
+            onClick={() => base44.auth.logout()}
+            className="select-none flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary w-full">
+              <LogOut className="h-4 w-4" />
+              Sign out
             </button>
             {/* Footer row */}
             <div className="pt-2 border-t border-border flex gap-4 px-4 flex-wrap items-center">
@@ -385,7 +385,7 @@ export default function Layout() {
       <AlertDialog open={editNameOpen} onOpenChange={setEditNameOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Edit My Name</AlertDialogTitle>
+            <AlertDialogTitle>Edit My Profile</AlertDialogTitle>
             <AlertDialogDescription>Enter the name you'd like to display in the app.</AlertDialogDescription>
           </AlertDialogHeader>
           <input
