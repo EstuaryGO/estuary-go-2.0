@@ -65,7 +65,7 @@ export default function QuickLogBox({ people }) {
             ))}
           </select>
 
-          <label className="text-sm font-semibold text-foreground">What has God been doing?</label>
+          <label className="block text-sm font-semibold text-foreground">What has God been doing?</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
