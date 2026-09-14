@@ -225,7 +225,7 @@ export default function Layout() {
             {/* GO! Logo + pithy statement */}
             <div className="flex items-center gap-2 px-4 py-3">
               <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/6ca653584_goLogo.png" alt="GO! Logo" className="h-9 w-auto" />
-              <span className="text-xs text-muted-foreground">Live Missionally. Every day.</span>
+              <span className="text-xs text-muted-foreground">Live missionally every day.</span>
             </div>
             {/* GO! Pray. Love. Invite. */}
             <Link
