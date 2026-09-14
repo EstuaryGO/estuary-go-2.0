@@ -13,17 +13,17 @@ const JUMP_IN_CARDS = [
   label: "GO! Pray. Love. Invite.",
   description: "Your daily missional rhythm — pray, love, and invite.",
   path: "/pray-impact-invite",
-  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/fb0370d63_thumbnail.jpg",
+  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/20f6e33e7_prayloveinvitethumb.jpg",
   icon: BookOpen,
-  contain: true
-},
-{
+  contain: false
+  },
+  {
   label: "GO! Preps + Practices",
   description: "Flow through the full video catalogue and keep tracking your steps.",
   path: "/preps-and-practices",
-  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/40bf1819b_thumbnail2.jpg",
+  thumbnail: "https://media.base44.com/images/public/6a971a771aed88257dedcb9e/ae9b92e13_prepsandpracticesthumb.jpg",
   icon: Layers,
-  contain: true
+  contain: false
 }];
 
 
