@@ -4,7 +4,7 @@ import { useState as useVimeoState, useEffect as useVimeoEffect } from "react";
 function VimeoThumbnail({ videoId, alt }) {
   const [thumb, setThumb] = useVimeoState(null);
   useVimeoEffect(() => {
-    fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1920`).
+    fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}&width=1920&_t=${Date.now()}`).
     then((r) => r.json()).
     then((d) => {
       if (d.thumbnail_url) {
