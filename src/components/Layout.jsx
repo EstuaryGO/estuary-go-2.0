@@ -140,7 +140,7 @@ export default function Layout() {
 
           <Link to="/" className="flex items-end gap-2 select-none">
             <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/6ca653584_goLogo.png" alt="GO! Logo" className="h-10 w-auto" />
-            <span className="text-xs text-muted-foreground leading-none pb-1 hidden sm:block">Live missionally every day.</span>
+            <span className="text-[10px] sm:text-xs text-muted-foreground leading-none pb-1">Live missionally every day.</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1 ml-auto">
