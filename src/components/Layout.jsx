@@ -287,7 +287,7 @@ export default function Layout() {
         <button
           onClick={() => setVideoPlaying(true)}
           className="select-none relative w-full aspect-video block group">
-            <VimeoThumbnail videoId="1213359916" alt="Welcome to GO!" />
+            <VimeoThumbnail videoId="1226689717" alt="Welcome to GO!" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <svg className="h-6 w-6 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -295,7 +295,7 @@ export default function Layout() {
             </div>
           </button> :
         <iframe
-          src="https://player.vimeo.com/video/1213359916?autoplay=1&playsinline=1&muted=0&autopause=0"
+          src="https://player.vimeo.com/video/1226689717?autoplay=1&playsinline=1&muted=0&autopause=0"
           className="w-full aspect-video"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
