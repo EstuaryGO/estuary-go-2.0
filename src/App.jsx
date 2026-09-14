@@ -18,6 +18,7 @@ import PrepsPage from './pages/PrepsPage';
 import PracticesPage from './pages/PracticesPage';
 import MyEstuary from './pages/MyEstuary';
 import GoCoach from './pages/GoCoach';
+import Give from './pages/Give';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Login from './pages/Login';
@@ -69,6 +70,7 @@ const AuthenticatedApp = () => {
           <Route path="/preps-and-practices/practices" element={<PracticesPage />} />
           <Route path="/my-estuary" element={<MyEstuary />} />
           <Route path="/go-coach" element={<GoCoach />} />
+          <Route path="/give" element={<Give />} />
         </Route>
       </Route>
       <Route path="*" element={<PageNotFound />} />

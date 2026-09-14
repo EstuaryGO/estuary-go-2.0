@@ -39,14 +39,14 @@ import {
 import AppTour, { startTour } from "@/components/AppTour";
 
 const navItems = [
-{ path: "/give", label: "Give", icon: Gift, href: "https://lifeintheestuary.churchcenter.com/giving" },
+{ path: "/give", label: "Give", icon: Gift },
 { path: "/go-coach", label: "GO! AI Assistant", icon: Bot }];
 
 
 const adminNavItems = [];
 
 
-const ROOT_PATHS = ["/", "/home", "/shop", "/go-chat", "/my-estuary", "/go-coach", "/preps-and-practices", "/preps-and-practices/preps", "/preps-and-practices/practices", "/pray-impact-invite", "/guide-training"];
+const ROOT_PATHS = ["/", "/home", "/shop", "/go-chat", "/my-estuary", "/go-coach", "/preps-and-practices", "/preps-and-practices/preps", "/preps-and-practices/practices", "/pray-impact-invite", "/guide-training", "/give"];
 
 const TAB_ROOTS = ["/home", "/my-estuary", "/go-coach"];
 
@@ -343,7 +343,7 @@ export default function Layout() {
           { to: "/home", label: "Home", Icon: House },
           { to: "/my-estuary", label: "My Estuary", Icon: null },
           { to: "/go-coach", label: "GO! AI", Icon: Bot },
-          { to: "https://lifeintheestuary.churchcenter.com/giving", label: "Give", Icon: Gift, external: true }].
+          { to: "/give", label: "Give", Icon: Gift }].
 
           map(({ to, label, Icon, external }) => {
             const isActive = !external && (location.pathname === to || (to === "/home" && location.pathname === "/"));
