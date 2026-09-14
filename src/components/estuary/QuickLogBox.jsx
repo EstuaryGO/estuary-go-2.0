@@ -38,14 +38,17 @@ export default function QuickLogBox({ people }) {
 
   return (
     <div className="rounded-2xl border border-border bg-card p-4 space-y-3">
-      <h2 className="text-sm font-bold text-foreground">Log a step or reflection</h2>
+      <h2 className="text-sm font-bold text-foreground">Share a GO! Story</h2>
       <p className="text-xs text-muted-foreground -mt-1">
-        Jot down a step you took or a reflection from your prayer time.
+        God is at work in the ordinary moments of our lives. We'd love to hear what you're seeing.
+      </p>
+      <p className="text-xs text-muted-foreground">
+        Share a story of what God has been doing, a conversation that encouraged you, or a step of obedience you've taken with someone Jesus has placed in your life.
       </p>
 
       {!hasPeople ? (
         <p className="text-sm text-muted-foreground py-3 text-center">
-          Add someone to your Estuary first to log a step.
+          Add someone to your Estuary first to share your story.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -62,10 +65,11 @@ export default function QuickLogBox({ people }) {
             ))}
           </select>
 
+          <label className="text-xs font-semibold text-foreground">What has God been doing?</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Write a step you took or a reflection from prayer…"
+            placeholder="Tell us about a moment, conversation, prayer, or step you've taken recently."
             rows={3}
             className="w-full px-3 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"
           />
@@ -77,7 +81,7 @@ export default function QuickLogBox({ people }) {
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold disabled:opacity-50 hover:bg-primary/90 transition-colors"
             >
               {addMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-              Save
+              Share Your Story
             </button>
           </div>
         </form>
