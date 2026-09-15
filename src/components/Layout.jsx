@@ -143,86 +143,22 @@ export default function Layout() {
             <span className="text-[10px] sm:text-xs text-muted-foreground leading-none pb-1">Live missionally every day.</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1 ml-auto">
-            {navItems.map(({ path, label, icon: Icon, href }) =>
-            href ?
-            <a
-              key={path}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="select-none flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-secondary">
-              
-                  <Icon className="h-4 w-4" />
-                  {label}
-                </a> :
 
-            <Link
-              key={path}
-              to={path}
-              className={`select-none flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              location.pathname === path ?
-              "bg-primary text-primary-foreground" :
-              "text-muted-foreground hover:text-foreground hover:bg-secondary"}`
-              }>
-              
-                  <Icon className="h-4 w-4" />
-                  {label}
-                </Link>
-
-            )}
-            {user?.role === 'admin' && adminNavItems.map(({ path, label, icon: Icon }) =>
-            <Link
-              key={path}
-              to={path}
-              className={`select-none flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              location.pathname === path ?
-              "bg-primary text-primary-foreground" :
-              "text-muted-foreground hover:text-foreground hover:bg-secondary"}`
-              }>
-              
-                <Icon className="h-4 w-4" />
-                {label}
-              </Link>
-            )}
-          </nav>
 
           <div className="flex items-center gap-2 ml-auto">
             <button
               onClick={() => setCartOpen(true)}
               className="select-none relative p-2 rounded-lg hover:bg-secondary transition-colors" />
             
-            <div className="hidden md:flex items-center gap-3 pl-3 border-l border-border">
-              <span className="text-sm text-muted-foreground select-none">{user?.full_name || user?.email}</span>
-              <button
-                onClick={() => base44.auth.logout()}
-                className="select-none flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-secondary transition-colors text-sm text-muted-foreground">
-                
-                <LogOut className="h-4 w-4" />
-                Sign out
-              </button>
-              <button
-                onClick={() => setDeleteDialogOpen(true)}
-                className="select-none flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-destructive/10 transition-colors text-sm text-destructive">
-                
-                <Trash2 className="h-4 w-4" />
-                Delete Account
-              </button>
-            </div>
-            
 
-
-
-
-            
-            <button id="tour-hamburger" className="select-none md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+            <button id="tour-hamburger" className="select-none p-2 ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
         {mobileOpen &&
-        <div className="md:hidden border-t border-border bg-card p-4 space-y-1">
+        <div className="border-t border-border bg-card p-4 space-y-1">
             {/* GO! Logo + pithy statement */}
             <div className="flex items-center gap-2 px-4 py-3">
               <img src="https://media.base44.com/images/public/6a1204d6712923c845a17a9d/6ca653584_goLogo.png" alt="GO! Logo" className="h-9 w-auto" />
